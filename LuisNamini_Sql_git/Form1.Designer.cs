@@ -36,9 +36,9 @@
             this.txtTeilnehmerMin = new System.Windows.Forms.TextBox();
             this.txtTeilnehmerMax = new System.Windows.Forms.TextBox();
             this.txtSchwerpunkt = new System.Windows.Forms.TextBox();
-            this.btnSpeichern = new System.Windows.Forms.Button();
+            this.buttonSpeichern = new System.Windows.Forms.Button();
             this.listWorkshops = new System.Windows.Forms.ListBox();
-            this.btnLaden = new System.Windows.Forms.Button();
+            this.buttonLaden = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,6 +47,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.buttonSuchen = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtNr
@@ -55,6 +56,7 @@
             this.txtNr.Name = "txtNr";
             this.txtNr.Size = new System.Drawing.Size(30, 20);
             this.txtNr.TabIndex = 0;
+            this.txtNr.TextChanged += new System.EventHandler(this.txtNr_TextChanged);
             // 
             // txtTitel
             // 
@@ -105,15 +107,17 @@
             this.txtSchwerpunkt.Name = "txtSchwerpunkt";
             this.txtSchwerpunkt.Size = new System.Drawing.Size(64, 20);
             this.txtSchwerpunkt.TabIndex = 7;
+            this.txtSchwerpunkt.TextChanged += new System.EventHandler(this.txtSchwerpunkt_TextChanged);
             // 
-            // btnSpeichern
+            // buttonSpeichern
             // 
-            this.btnSpeichern.Location = new System.Drawing.Point(876, 213);
-            this.btnSpeichern.Name = "btnSpeichern";
-            this.btnSpeichern.Size = new System.Drawing.Size(75, 23);
-            this.btnSpeichern.TabIndex = 8;
-            this.btnSpeichern.Text = "speichern";
-            this.btnSpeichern.UseVisualStyleBackColor = true;
+            this.buttonSpeichern.Location = new System.Drawing.Point(876, 213);
+            this.buttonSpeichern.Name = "buttonSpeichern";
+            this.buttonSpeichern.Size = new System.Drawing.Size(75, 23);
+            this.buttonSpeichern.TabIndex = 8;
+            this.buttonSpeichern.Text = "speichern";
+            this.buttonSpeichern.UseVisualStyleBackColor = true;
+            this.buttonSpeichern.Click += new System.EventHandler(this.btnSpeichern_Click_1);
             // 
             // listWorkshops
             // 
@@ -123,14 +127,14 @@
             this.listWorkshops.Size = new System.Drawing.Size(120, 95);
             this.listWorkshops.TabIndex = 9;
             // 
-            // btnLaden
+            // buttonLaden
             // 
-            this.btnLaden.Location = new System.Drawing.Point(197, 372);
-            this.btnLaden.Name = "btnLaden";
-            this.btnLaden.Size = new System.Drawing.Size(75, 23);
-            this.btnLaden.TabIndex = 10;
-            this.btnLaden.Text = "Laden";
-            this.btnLaden.UseVisualStyleBackColor = true;
+            this.buttonLaden.Location = new System.Drawing.Point(197, 372);
+            this.buttonLaden.Name = "buttonLaden";
+            this.buttonLaden.Size = new System.Drawing.Size(75, 23);
+            this.buttonLaden.TabIndex = 10;
+            this.buttonLaden.Text = "Laden";
+            this.buttonLaden.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -140,6 +144,7 @@
             this.label1.Size = new System.Drawing.Size(16, 13);
             this.label1.TabIndex = 11;
             this.label1.Text = "nr";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -204,11 +209,21 @@
             this.label8.TabIndex = 18;
             this.label8.Text = "Schwerpunkt";
             // 
+            // buttonSuchen
+            // 
+            this.buttonSuchen.Location = new System.Drawing.Point(876, 301);
+            this.buttonSuchen.Name = "buttonSuchen";
+            this.buttonSuchen.Size = new System.Drawing.Size(75, 23);
+            this.buttonSuchen.TabIndex = 19;
+            this.buttonSuchen.Text = "Suchen";
+            this.buttonSuchen.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(972, 450);
+            this.Controls.Add(this.buttonSuchen);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -217,9 +232,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnLaden);
+            this.Controls.Add(this.buttonLaden);
             this.Controls.Add(this.listWorkshops);
-            this.Controls.Add(this.btnSpeichern);
+            this.Controls.Add(this.buttonSpeichern);
             this.Controls.Add(this.txtSchwerpunkt);
             this.Controls.Add(this.txtTeilnehmerMax);
             this.Controls.Add(this.txtTeilnehmerMin);
@@ -245,9 +260,9 @@
         private System.Windows.Forms.TextBox txtTeilnehmerMin;
         private System.Windows.Forms.TextBox txtTeilnehmerMax;
         private System.Windows.Forms.TextBox txtSchwerpunkt;
-        private System.Windows.Forms.Button btnSpeichern;
+        private System.Windows.Forms.Button buttonSpeichern;
         private System.Windows.Forms.ListBox listWorkshops;
-        private System.Windows.Forms.Button btnLaden;
+        private System.Windows.Forms.Button buttonLaden;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -256,6 +271,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button buttonSuchen;
     }
 }
 

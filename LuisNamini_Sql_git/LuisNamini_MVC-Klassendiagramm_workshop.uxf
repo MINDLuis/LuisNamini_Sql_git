@@ -4,12 +4,12 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>560</x>
-      <y>56</y>
+      <x>21</x>
+      <y>0</y>
       <w>175</w>
       <h>189</h>
     </coordinates>
-    <panel_attributes>workshop
+    <panel_attributes>Workshop
 --
 - workshopID:int
 - nr:int
@@ -32,12 +32,12 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>203</x>
-      <y>175</y>
+      <x>28</x>
+      <y>196</y>
       <w>147</w>
       <h>140</h>
     </coordinates>
-    <panel_attributes>schueler
+    <panel_attributes>Schueler
 --
 - schuelerID:int
 - vorname:string
@@ -56,12 +56,12 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>203</x>
-      <y>385</y>
-      <w>161</w>
+      <x>0</x>
+      <y>427</y>
+      <w>182</w>
       <h>98</h>
     </coordinates>
-    <panel_attributes>klasse
+    <panel_attributes>Klasse
 --
 - klasseID:int
 - bezeichnung:string
@@ -75,32 +75,45 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>574</x>
-      <y>588</y>
-      <w>147</w>
-      <h>84</h>
+      <x>686</x>
+      <y>490</y>
+      <w>231</w>
+      <h>252</h>
     </coordinates>
-    <panel_attributes>Form1
+    <panel_attributes>IView
 --
 
 --
++setModel(model:IModel)
++setController(controller:IController)
+
+-buttonAnlegen_Click(sender:object,e:EventArgs)
+-buttonSuchen_Click(sender:object, e:EventArgs)
+-buttonLaden(sender:objects, e:EventsArgs)
+
+
+
 + workshopsAnzeigen(Liste)
 + titelEinlesen():string
-+ meldung(text)</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>574</x>
-      <y>448</y>
+      <x>1302</x>
+      <y>497</y>
       <w>147</w>
-      <h>70</h>
+      <h>161</h>
     </coordinates>
-    <panel_attributes>controller
+    <panel_attributes>IController
 --
-- model:workshopModel
+
 --
++setView(view:IView)
++setModel(model:IModel)
+
++ WorkshopSpeichern()
 + ladeWorkshops()
 + workshopErstellen(titel)</panel_attributes>
     <additional_attributes/>
@@ -108,72 +121,197 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>574</x>
-      <y>301</y>
-      <w>147</w>
-      <h>77</h>
+      <x>672</x>
+      <y>126</y>
+      <w>294</w>
+      <h>294</h>
     </coordinates>
-    <panel_attributes>model
+    <panel_attributes>IModel
 --
+
+--
++setView(view:IView)
++setController(controller:IController)
+
++ anlegenWorkshop(workshop:Workshop)
++ suchenWorkshops():List&lt;workshop&gt;
++ suchenWorkshops(teilworkshop:workshop):List&lt;workshop&gt;
++ aendernWorkshop(workshop:Workshop)
++ loeschenWorkshop(workshop:Workshop)
+
++ anlegenSchueler(schueler:Schueler)
++ suchenSchueler():List&lt;schueler&gt;
++ suchenSchueler(teilschueler:schueler):List&lt;schueler&gt;
++ aendernWorkshop(Schueler:Schueler)
++ loeschenSchueler(schueler:Schueler)
+
++ anlegenKlasse(klasse:Klasse)
++ suchenKlasse():List&lt;klasse&gt;
++ suchenKlasse(teilklasse:klasse):List&lt;klasse&gt;
++ aendernKlasse(klasse:Klasse)
++ loeschenKlasse(klasse:Klasse)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1092</x>
+      <y>280</y>
+      <w>147</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>Program
+--
+_-model:IModel_
+_-controller:IController_
+_-view:IView_
+--
+_+Main()_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>273</x>
+      <y>126</y>
+      <w>280</w>
+      <h>329</h>
+    </coordinates>
+    <panel_attributes>Model
+--
+-view:IView
+-controller:IController
+
 -connectionString:string
 --
-+ alleWorkshops():List&lt;workshop&gt;
-+ insertWorkshop(w:workshop)</panel_attributes>
++Model()
+
++setView(view:IView)
++setController(controller:IController)
+
++ anlegenWorkshop(workshop:Workshop)
++ suchenWorkshops():List&lt;workshop&gt;
++ suchenWorkshops(teilworkshop:workshop):List&lt;workshop&gt;
++ aendernWorkshop(workshop:Workshop)
++ loeschenWorkshop(workshop:Workshop)
+
++ anlegenSchueler(schueler:Schueler)
++ suchenSchueler():List&lt;schueler&gt;
++ suchenSchueler(teilschueler:schueler):List&lt;schueler&gt;
++ aendernWorkshop(Schueler:Schueler)
++ loeschenSchueler(schueler:Schueler)
+
++ anlegenKlasse(klasse:Klasse)
++ suchenKlasse():List&lt;klasse&gt;
++ suchenKlasse(teilklasse:klasse):List&lt;klasse&gt;
++ aendernKlasse(klasse:Klasse)
++ loeschenKlasse(klasse:Klasse)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1008</x>
+      <y>497</y>
+      <w>147</w>
+      <h>161</h>
+    </coordinates>
+    <panel_attributes>Controller
+--
+-view:IView
+-model:workshopModel
+--
++Controller()
+
++setView(view:IView)
++setModel(model:IModel)
+
++ WorkshopSpeichern()
++ ladeWorkshops()
++ workshopErstellen(titel)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>287</x>
+      <y>490</y>
+      <w>238</w>
+      <h>448</h>
+    </coordinates>
+    <panel_attributes>View
+--
+-model:IModel
+-controller:IController
+
+-labelNr: Label
+-labelTitel: Label
+-labelKosten: Label
+-labelBeschreibung: Label
+-labelVoraussetzungen: Label
+-labelTeilnehmerMin: Label
+-labelTeilnehmerMax: Label
+-labelSchwerpunkt: Label
+
+-textboxNr: TextBox
+-textboxTitel: TextBox
+-textboxKosten: TextBox
+-textboxBeschreibung: TextBox
+-textboxVoraussetzungen: TextBox
+-textboxTeilnehmerMin: TextBox
+-textboxTeilnehmerMax: TextBox
+-textboxSchwerpunkt: TextBox
+
+
+--
++View()
+
++setModel(model:IModel)
++setController(controller:IController)
+
+-buttonAnlegen_Click(sender:object,e:EventArgs)
+-buttonSuchen_Click(sender:object, e:EventArgs)
+-buttonLaden_Click(sender:objects, e:EventsArgs)
+
+
+
++ workshopsAnzeigen(Liste)
++ titelEinlesen():string
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>637</x>
-      <y>511</y>
-      <w>21</w>
-      <h>91</h>
+      <x>546</x>
+      <y>161</y>
+      <w>140</w>
+      <h>21</h>
     </coordinates>
-    <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>180.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>637</x>
-      <y>371</y>
-      <w>21</w>
-      <h>91</h>
+      <x>1148</x>
+      <y>574</y>
+      <w>168</w>
+      <h>21</h>
     </coordinates>
-    <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>220.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>637</x>
-      <y>238</y>
-      <w>21</w>
-      <h>77</h>
+      <x>518</x>
+      <y>525</y>
+      <w>182</w>
+      <h>21</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>266</x>
-      <y>308</y>
-      <w>21</w>
-      <h>91</h>
-    </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>266</x>
-      <y>133</y>
-      <w>301</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;60.0;410.0;10.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>240.0;10.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>

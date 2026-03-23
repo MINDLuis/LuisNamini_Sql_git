@@ -54,5 +54,25 @@ namespace LuisNamini_Sql_git
                 );
             }
         }
+
+        private void btnSpeichern_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSchwerpunkt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNr_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
