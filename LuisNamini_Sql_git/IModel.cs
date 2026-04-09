@@ -1,8 +1,10 @@
-﻿namespace LuisNamini_Sql_git
+﻿using System.Collections.Generic;
+
+namespace LuisNamini_Sql_git
 {
-    internal interface IModel
+    public interface IModel
     {
-        IView View { set; }
-        IController Controller { set; }
+        List<Workshop> alleWorkshops();
+        void insertWorkshop(Workshop w);
     }
 }
